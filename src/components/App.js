@@ -216,7 +216,6 @@ function App() {
               key={`${place}state`}
               id={`state${index + 1}`}
               onClick={() => handleCity(index)}
-              onMouseOver={() => handleCity(index)}
             >
               {place["name"]}
             </button>
@@ -231,7 +230,6 @@ function App() {
               key={`${place}city`}
               id={`city${index + 1}`}
               onClick={() => handleTown(place)}
-              onMouseOver={() => handleTown(place)}
             >
               {place}
             </button>
