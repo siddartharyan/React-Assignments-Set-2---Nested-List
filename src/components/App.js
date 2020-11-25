@@ -171,6 +171,7 @@ function App() {
       obj.push(cities1[i]["name"]);
     }
     setCities(obj);
+    setTowns([]);
   };
 
   const handleTown = (city) => {
