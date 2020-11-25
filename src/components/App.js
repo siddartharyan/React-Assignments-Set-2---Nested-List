@@ -179,7 +179,6 @@ function App() {
     let found = false;
     for (let i = 0; i < states.length; i++) {
       let arr = states[i]["cities"];
-      console.log(arr);
       for (let j = 0; j < arr.length; j++) {
         if (arr[j]["name"] === city) {
           obj = arr[j]["towns"];
@@ -191,7 +190,6 @@ function App() {
         break;
       }
     }
-    console.log(obj);
     let arr = [];
     for (let i = 0; i < obj.length; i++) {
       arr.push(obj[i]["name"]);
@@ -204,9 +202,13 @@ function App() {
       <div>
         {states.map((place, index) => {
           return (
-            <div id={`state${index + 1}`} onClick={() => handleCity(index)}>
+            <button
+              key={`${place}state`}
+              id={`state${index + 1}`}
+              onClick={() => handleCity(index)}
+            >
               {place["name"]}
-            </div>
+            </button>
           );
         })}
       </div>
@@ -214,16 +216,24 @@ function App() {
       <div>
         {cities.map((place, index) => {
           return (
-            <div id={`city${index + 1}`} onClick={() => handleTown(place)}>
+            <button
+              key={`${place}city`}
+              id={`city${index + 1}`}
+              onClick={() => handleTown(place)}
+            >
               {place}
-            </div>
+            </button>
           );
         })}
       </div>
       <h1>towns</h1>
       <div>
         {towns.map((place, index) => {
-          return <div id={`town${index + 1}`}>{place}</div>;
+          return (
+            <div key={`${place}town`} id={`town${index + 1}`}>
+              {place}
+            </div>
+          );
         })}
       </div>
     </div>
