@@ -167,11 +167,20 @@ function App() {
     }
     let cities1 = obj["cities"];
     obj = [];
+    let arr = [];
     for (let i = 0; i < cities1.length; i++) {
       obj.push(cities1[i]["name"]);
+      if (i === 0) {
+        let k = cities1[i]["towns"];
+        console.log(k);
+        for (let j = 0; j < k.length; j++) {
+          arr.push(k[j]["name"]);
+        }
+        //console.log(arr);
+      }
     }
     setCities(obj);
-    setTowns([]);
+    setTowns(arr);
   };
 
   const handleTown = (city) => {
