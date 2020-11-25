@@ -158,6 +158,7 @@ function App() {
   let [cities, setCities] = useState([]);
   let [towns, setTowns] = useState([]);
   const handleCity = (index) => {
+    console.log("entered");
     let obj = undefined;
     for (let i = 0; i < states.length; i++) {
       if (i === index) {
@@ -215,6 +216,7 @@ function App() {
               key={`${place}state`}
               id={`state${index + 1}`}
               onClick={() => handleCity(index)}
+              onMouseOver={() => handleCity(index)}
             >
               {place["name"]}
             </button>
@@ -229,6 +231,7 @@ function App() {
               key={`${place}city`}
               id={`city${index + 1}`}
               onClick={() => handleTown(place)}
+              onMouseOver={() => handleTown(place)}
             >
               {place}
             </button>
