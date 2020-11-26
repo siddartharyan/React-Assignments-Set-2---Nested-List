@@ -169,7 +169,18 @@ function App() {
     for (let i = 0; i < obj.length; i++) {
       arr.push(obj[i]["name"]);
     }
-
+    obj = cities;
+    let found = true;
+    for (let i = 0; i < Math.min(obj.length, arr.length); i++) {
+      if (obj[i] !== arr[i]) {
+        found = false;
+        break;
+      }
+    }
+    if (found && obj.length !== 0) {
+      setCities([]);
+      return;
+    }
     setCities(arr);
   };
 
@@ -192,6 +203,18 @@ function App() {
     let arr = [];
     for (let i = 0; i < obj.length; i++) {
       arr.push(obj[i]["name"]);
+    }
+    obj = towns;
+    found = true;
+    for (let i = 0; i < Math.min(obj.length, arr.length); i++) {
+      if (obj[i] !== arr[i]) {
+        found = false;
+        break;
+      }
+    }
+    if (found && towns.length !== 0) {
+      setTowns([]);
+      return;
     }
     setTowns(arr);
   };
