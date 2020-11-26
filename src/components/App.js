@@ -158,31 +158,19 @@ function App() {
   let [cities, setCities] = useState([]);
   let [towns, setTowns] = useState([]);
   const handleCity = (index) => {
-    console.log("entered");
     let obj = undefined;
     for (let i = 0; i < states.length; i++) {
       if (i === index) {
-        obj = states[i];
+        obj = states[i]["cities"];
         break;
       }
     }
-    console.log(obj);
-    let cities1 = obj["cities"];
-    console.log(cities1);
-    obj = [];
-    // let arr = [];
-    // for (let i = 0; i < cities1.length; i++) {
-    //   obj.push(cities1[i]["name"]);
-    //   if (i === 0) {
-    //     let k = cities1[i]["towns"];
-    //     console.log(k);
-    //     for (let j = 0; j < k.length; j++) {
-    //       arr.push(k[j]["name"]);
-    //     }
-    //     //console.log(arr);
-    //   }
-    // }
-    setCities(cities1);
+    let arr = [];
+    for (let i = 0; i < obj.length; i++) {
+      arr.push(obj[i]["name"]);
+    }
+
+    setCities(arr);
   };
 
   const handleTown = (city) => {
